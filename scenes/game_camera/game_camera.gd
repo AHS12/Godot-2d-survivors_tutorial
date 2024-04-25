@@ -1,6 +1,9 @@
 extends Camera2D
+
+@export var smoothing_value: float
+
 var target_position = Vector2.ZERO
-const SMOTHING_VALUE = 10
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +13,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	acquire_target()
-	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * SMOTHING_VALUE))
+	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * smoothing_value))
 	
 	
 func acquire_target():
