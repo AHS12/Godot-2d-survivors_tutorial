@@ -7,4 +7,5 @@ func _ready():
 
 
 func on_area_entered(otherArea: Area2D):
+	GameEvents.emit_experience_vile_Collected(1)
 	queue_free()
