@@ -17,6 +17,5 @@ func damage(damageReceived: float):
 		
 func death():
 	if current_helath == 0:
-		print("just die")
 		died.emit()
 		owner.queue_free()
