@@ -12,5 +12,3 @@ func on_experience_updated(current_experience: float, target_experience: float):
 	progress_bar.value = percent
 	
 	
-
-
