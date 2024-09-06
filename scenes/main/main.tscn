@@ -1,16 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://blk7t28efhs8f"]
+[gd_scene load_steps=12 format=3 uid="uid://blk7t28efhs8f"]
 
 [ext_resource type="TileSet" uid="uid://d4f7pjf4y5ms3" path="res://resources/tileset.tres" id="1_bc1d7"]
 [ext_resource type="PackedScene" uid="uid://chbs3co38b65u" path="res://scenes/game_object/player/player.tscn" id="1_bdfb7"]
 [ext_resource type="PackedScene" uid="uid://c84lmhja7pt7a" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_lms03"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_mpkig"]
 [ext_resource type="PackedScene" uid="uid://cc3ja5ckpgtps" path="res://scenes/ui/experience_bar.tscn" id="2_sndbo"]
 [ext_resource type="PackedScene" uid="uid://7gnqhc6i6e38" path="res://scenes/manager/arena_timer_manager.tscn" id="2_spiyq"]
 [ext_resource type="PackedScene" uid="uid://vakj4hhy8xbj" path="res://scenes/manager/enemy_manager.tscn" id="2_tub3w"]
+[ext_resource type="PackedScene" uid="uid://bq882vvflsos4" path="res://scenes/ui/end_screen.tscn" id="2_xij4a"]
 [ext_resource type="PackedScene" uid="uid://blq4gjat2lskh" path="res://scenes/manager/experience_manager.tscn" id="3_jo5a5"]
 [ext_resource type="PackedScene" uid="uid://bdwpi6igay4lt" path="res://scenes/ui/arena_time_ui.tscn" id="5_02rdh"]
 [ext_resource type="PackedScene" uid="uid://budg6x3hn6xdb" path="res://scenes/manager/upgrade_manager.tscn" id="6_ychpd"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_mpkig")
+end_screen_scene = ExtResource("2_xij4a")
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("5_02rdh")]
 arena_time_manager = NodePath("../ArenaTimerManager")
@@ -38,6 +42,7 @@ layer_0/tile_data = PackedInt32Array(1507368, 0, 4, 1441832, 0, 4, 1376296, 0, 4
 y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_bdfb7")]
+unique_name_in_owner = true
 position = Vector2(248, 191)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
